@@ -78,6 +78,8 @@ export default defineConfig([{
     },
 
     rules: {
+        "no-undef": "off",
+        "no-unused-vars": "off",
         "prettier/prettier": "error",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-
 import { Modal, Form, Input, message } from 'antd';
+
 import { User } from '../types/user';
 import { useUserContext } from '../context/UserContext';
 
@@ -56,8 +56,10 @@ const UserFormModal: React.FC<Props> = ({ open, onClose, mode, user }) => {
       }
 
       onClose();
-    } catch (err) {
-      // handled by ant
+    } catch (err: any) {
+      err.errorFields.forEach((field: any) => {
+        message.error(field.errors[0]);
+      });
     }
   };
 
