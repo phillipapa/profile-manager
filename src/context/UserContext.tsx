@@ -24,7 +24,7 @@ type UserContextProps = {
 
 export const UserContext = createContext<UserContextProps | undefined>(undefined);
 
-function userReducer(state: State, action: Action): State {
+export function userReducer(state: State, action: Action): State {
   switch (action.type) {
     case 'SET_USER':
       return { ...state, users: action.payload };
