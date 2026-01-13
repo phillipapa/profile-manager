@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Descriptions, Avatar } from 'antd';
+
 import { User } from '../types/user';
 
 type Props = {

@@ -46,6 +46,7 @@ export default defineConfig([{
         globals: {
             ...globals.browser,
             ...globals.node,
+            ...globals.amd,
         },
 
         parser: babelParser,

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Table, Avatar, Spin, Alert, Button, Space } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import { DeleteOutlined, EditOutlined, EyeOutlined, PlusOutlined } from '@ant-design/icons';
+
 import { User } from '../types/user';
 import { useUserContext } from '../context/UserContext';
 import UserDetailModal from './UserDetailModal';
 import UserFormModal from './UserFormModal';
-import { DeleteOutlined, EditOutlined, EyeOutlined, PlusOutlined } from '@ant-design/icons';
 
 const UserList: React.FC = () => {
   const {
