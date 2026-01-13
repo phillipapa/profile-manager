@@ -15,83 +15,83 @@ import { FlatCompat } from "@eslint/eslintrc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all
 });
 
 export default defineConfig([{
-    extends: fixupConfigRules(compat.extends(
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:import/typescript",
-        "plugin:prettier/recommended",
-    )),
+  extends: fixupConfigRules(compat.extends(
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
+      "plugin:prettier/recommended",
+  )),
 
-    files: ["**/*.ts", "**/*.tsx"],
+  files: ["**/*.ts", "**/*.tsx"],
 
-    plugins: {
-        react: fixupPluginRules(react),
-        "react-hooks": fixupPluginRules(reactHooks),
-        "jsx-a11y": fixupPluginRules(jsxA11Y),
-        import: fixupPluginRules(_import),
-        prettier: fixupPluginRules(prettier),
-    },
+  plugins: {
+      react: fixupPluginRules(react),
+      "react-hooks": fixupPluginRules(reactHooks),
+      "jsx-a11y": fixupPluginRules(jsxA11Y),
+      import: fixupPluginRules(_import),
+      prettier: fixupPluginRules(prettier),
+  },
 
-    languageOptions: {
-        globals: {
-            ...globals.browser,
-            ...globals.node,
-            ...globals.amd,
-        },
+  languageOptions: {
+      globals: {
+          ...globals.browser,
+          ...globals.node,
+          ...globals.amd,
+      },
 
-        parser: babelParser,
-        ecmaVersion: 2021,
-        sourceType: "module",
+      parser: babelParser,
+      ecmaVersion: 2021,
+      sourceType: "module",
 
-        parserOptions: {
-            ecmaFeatures: {
-                jsx: true,
-            },
-            babelOptions: {
-                presets: ["@babel/preset-react", "@babel/preset-typescript"]
-            },
+      parserOptions: {
+          ecmaFeatures: {
+              jsx: true,
+          },
+          babelOptions: {
+              presets: ["@babel/preset-react", "@babel/preset-typescript"]
+          },
 
-            requireConfigFile: false,
-        },
-    },
+          requireConfigFile: false,
+      },
+  },
 
-    settings: {
-        react: {
-            version: "detect",
-        },
+  settings: {
+      react: {
+          version: "detect",
+      },
 
-        "import/resolver": {
-            node: {
-                extensions: [".js", ".jsx", ".ts", ".tsx"],
-            },
-        },
-    },
+      "import/resolver": {
+          node: {
+              extensions: [".js", ".jsx", ".ts", ".tsx"],
+          },
+      },
+  },
 
-    rules: {
-        "no-undef": "off",
-        "no-unused-vars": "off",
-        "prettier/prettier": "error",
-        "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off",
+  rules: {
+      "no-undef": "off",
+      "no-unused-vars": "off",
+      "prettier/prettier": "error",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
 
-        "import/order": ["warn", {
-            groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]],
-            "newlines-between": "always",
-        }],
+      "import/order": ["warn", {
+          groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]],
+          "newlines-between": "always",
+      }],
 
-        "import/no-unresolved": "error",
-        "import/no-duplicates": "error",
-        "jsx-a11y/anchor-is-valid": "warn",
-        "jsx-a11y/no-noninteractive-element-interactions": "warn",
-    },
+      "import/no-unresolved": "error",
+      "import/no-duplicates": "error",
+      "jsx-a11y/anchor-is-valid": "warn",
+      "jsx-a11y/no-noninteractive-element-interactions": "warn",
+  },
 }]);

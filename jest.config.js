@@ -6,8 +6,5 @@ module.exports = {
   ],
   coveragePathIgnorePatterns: [
     "/node_modules/"
-  ],
-  setupFilesAfterEnv: [
-    './src/App.test.tsx',
-  ],
+  ]
 };
