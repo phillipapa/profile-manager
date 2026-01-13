@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
+    "@eslint/compat": "^2.0.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
@@ -34,8 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --quiet",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,md}'"
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "eslintConfig": {
     "extends": [
@@ -54,5 +55,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.28.6",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5"
   }
 }
