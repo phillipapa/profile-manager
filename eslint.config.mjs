@@ -59,6 +59,7 @@ export default defineConfig([{
             babelOptions: {
                 presets: ["@babel/preset-react", "@babel/preset-typescript"]
             },
+
             requireConfigFile: false,
         },
     },
