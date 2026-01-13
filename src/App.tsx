@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout, Typography } from 'antd';
+const { Header, Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout style={{ minHeight: '100vh', marginTop: '2vh' }}>
+      <Header style={{ background: '#fff' }}>
+        <Typography.Title level={3} style={{ margin: 0, color: '#0362fc' }}>
+          Profile Manager
+        </Typography.Title>
+      </Header>
+      <Content style={{ padding: '24px' }}>
+        {
+          // isi komponen
+        }
+      </Content>
+    </Layout>
   );
 }
 
