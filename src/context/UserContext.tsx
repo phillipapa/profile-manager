@@ -56,7 +56,6 @@ export const UserProvider: React.FC<ProviderProps> = ({ children }) => {
     error: null,
   });
 
-  // Load users once on mount
   useEffect(() => {
     const load = async () => {
       dispatch({ type: 'SET_LOADING', payload: true });
