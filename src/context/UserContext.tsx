@@ -32,10 +32,13 @@ function userReducer(state: State, action: Action): State {
     case 'UPDATE_USER':
       return {
         ...state,
-        users: state.users.map((u) => (u.id === action.payload.id ? action.payload : u)),
+        users: state.users.map(u => (u.id === action.payload.id ? action.payload : u)),
       };
     case 'DELETE_USER':
-      return { ...state, users: state.users.filter((u) => u.id !== action.payload) };
+      return {
+        ...state,
+        users: state.users.filter(u => u.id !== action.payload),
+      };
     case 'SET_LOADING':
       return { ...state, loading: action.payload };
     case 'SET_ERROR':

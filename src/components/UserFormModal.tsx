@@ -69,29 +69,15 @@ const UserFormModal: React.FC<Props> = ({ open, onClose, mode, user }) => {
       onOk={handleOk}
     >
       <Form form={form} layout="vertical">
-        <Form.Item
-          name="name"
-          label="Full Name"
-          rules={[{ required: true, message: 'Enter your name' }]}
-        >
+        <Form.Item name="name" label="Full Name" rules={[{ required: true, message: 'Enter your name' }]}>
           <Input placeholder="John Doe" />
         </Form.Item>
 
-        <Form.Item
-          name="username"
-          label="Username"
-          rules={[{ required: true, message: 'Enter desired username' }]}
-        >
+        <Form.Item name="username" label="Username" rules={[{ required: true, message: 'Enter desired username' }]}>
           <Input placeholder="johndoe" />
         </Form.Item>
 
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[
-            { required: true, type: 'email', message: 'Enter valid email' },
-          ]}
-        >
+        <Form.Item name="email" label="Email" rules={[{ required: true, type: 'email', message: 'Enter valid email' }]}>
           <Input placeholder="johndoe@example.com" />
         </Form.Item>
 

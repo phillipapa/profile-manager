@@ -7,8 +7,8 @@ export async function fetchUsers(): Promise<User[]> {
   }
   const data: User[] = await response.json();
 
-  return data.map((user) => ({
+  return data.map(user => ({
     ...user,
     avatarUrl: `https://picsum.photos/seed/${user.id}/80/80`,
-}));
+  }));
 }

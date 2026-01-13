@@ -10,12 +10,7 @@ type Props = {
 
 const UserDetailModal: React.FC<Props> = ({ open, onClose, user }) => {
   return (
-    <Modal
-      open={open}
-      onCancel={onClose}
-      footer={null}
-      title={<span>{user.name}'s Details</span>}
-    >
+    <Modal open={open} onCancel={onClose} footer={null} title={<span>{user.name}'s Details</span>}>
       <div style={{ textAlign: 'center', marginBottom: 16 }}>
         <Avatar src={user.avatarUrl} size={96} />
       </div>

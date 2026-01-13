@@ -38,7 +38,7 @@ const UserList: React.FC = () => {
       title: 'Avatar',
       dataIndex: 'avatarUrl',
       key: 'avatar',
-      render: (url) => <Avatar src={url} />,
+      render: url => <Avatar src={url} />,
       width: 80,
       responsive: ['xs', 'sm', 'md', 'lg'],
     },
@@ -75,7 +75,7 @@ const UserList: React.FC = () => {
           <Button
             icon={<EyeOutlined />}
             size="small"
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
               openDetail(record);
             }}
@@ -83,7 +83,7 @@ const UserList: React.FC = () => {
           <Button
             icon={<EditOutlined />}
             size="small"
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
               openForm('edit', record);
             }}
@@ -92,7 +92,7 @@ const UserList: React.FC = () => {
             icon={<DeleteOutlined />}
             size="small"
             danger
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
               handleDelete(record.id);
             }}
@@ -103,9 +103,7 @@ const UserList: React.FC = () => {
   ];
 
   if (loading) {
-    return (
-      <Spin tip="Loading..." style={{ display: 'block', marginTop: 40 }} />
-    );
+    return <Spin tip="Loading..." style={{ display: 'block', marginTop: 40 }} />;
   }
 
   if (error) {
@@ -115,11 +113,7 @@ const UserList: React.FC = () => {
   return (
     <>
       <Space style={{ marginBottom: 16 }}>
-        <Button
-          type="primary"
-          icon={<PlusOutlined />}
-          onClick={() => openForm('add')}
-        >
+        <Button type="primary" icon={<PlusOutlined />} onClick={() => openForm('add')}>
           Add User
         </Button>
       </Space>
@@ -129,26 +123,15 @@ const UserList: React.FC = () => {
         columns={columns}
         dataSource={users}
         pagination={{ pageSize: 5 }}
-        onRow={(record) => ({
+        onRow={record => ({
           onClick: () => openDetail(record),
         })}
         scroll={{ x: 800 }}
       />
 
-      {selectedUser && (
-        <UserDetailModal
-          open={isDetailOpen}
-          onClose={() => setDetailOpen(false)}
-          user={selectedUser}
-        />
-      )}
+      {selectedUser && <UserDetailModal open={isDetailOpen} onClose={() => setDetailOpen(false)} user={selectedUser} />}
 
-      <UserFormModal
-        open={isFormOpen}
-        onClose={() => setFormOpen(false)}
-        mode={formMode}
-        user={selectedUser}
-      />
+      <UserFormModal open={isFormOpen} onClose={() => setFormOpen(false)} mode={formMode} user={selectedUser} />
     </>
   );
 };
