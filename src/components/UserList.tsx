@@ -5,7 +5,7 @@ import { User } from '../types/user';
 import { useUserContext } from '../context/UserContext';
 import UserDetailModal from './UserDetailModal';
 import UserFormModal from './UserFormModal';
-import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, EyeOutlined, PlusOutlined } from '@ant-design/icons';
 
 const UserList: React.FC = () => {
   const {
@@ -69,22 +69,36 @@ const UserList: React.FC = () => {
     {
       title: 'Actions',
       key: 'actions',
+      width: 180,
       render: (_, record) => (
         <Space size="middle">
           <Button
+            icon={<EyeOutlined />}
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+              openDetail(record);
+            }}
+          />
+          <Button
             icon={<EditOutlined />}
             size="small"
-            onClick={() => openForm('edit', record)}
+            onClick={(e) => {
+              e.stopPropagation();
+              openForm('edit', record);
+            }}
           />
           <Button
             icon={<DeleteOutlined />}
             size="small"
             danger
-            onClick={() => handleDelete(record.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete(record.id);
+            }}
           />
         </Space>
       ),
-      width: 120,
     },
   ];
 

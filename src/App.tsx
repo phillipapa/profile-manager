@@ -8,9 +8,9 @@ const { Header, Content } = Layout;
 function App() {
   return (
     <UserProvider>
-      <Layout style={{ minHeight: '100vh', marginTop: '2vh' }}>
-        <Header style={{ background: '#fff', padding: '0 24px' }}>
-          <Typography.Title level={3} style={{ margin: 0, color: '#0362fc' }}>
+      <Layout style={{ minHeight: '100vh'  }}>
+        <Header style={{ background: '#f0f7ff', padding: '0 24px' }}>
+          <Typography.Title level={3} style={{ margin: 0, color: '#0362fc', marginTop: '1vh', textAlign: 'center' }}>
             Profile Manager
           </Typography.Title>
         </Header>
