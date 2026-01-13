@@ -11,7 +11,7 @@ function App() {
       </Header>
       <Content style={{ padding: '24px' }}>
         {
-          // isi komponen
+          // isi komponen utama
         }
       </Content>
     </Layout>
