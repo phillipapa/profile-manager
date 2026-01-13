@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import 'antd/dist/reset.css';
 import { ConfigProvider } from 'antd';
-import { theme } from 'antd';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
