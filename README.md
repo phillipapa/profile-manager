@@ -13,7 +13,8 @@ https://phillipapa.github.io/profile-manager/
 
 # Running
 
-1. Clone this repository
-2. Open your installed git bash terminal (for Windows), or bulit-in terminal (for linux based OS), and run: ```npm run start```
+1. Clone this repository (run ```git clone https://github.com/phillipapa/profile-manager.git``` in your terminal (**git bash** in Windows, or built-in terminal in linux based OS)
+2. cd to your directory (for default directory name, run ```cd profile-manager```)
+3. Run ```npm run start```
   
 The application will be available for view in browser at: ```http://localhost:3000```
