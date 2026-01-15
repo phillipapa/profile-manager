@@ -13,6 +13,7 @@ https://phillipapa.github.io/profile-manager/
 
 # Running
 
-To run the application, simply open your installed git bash terminal (for Windows), or bulit-in terminal (for linux based OS), and run: ```npm run start```
+1. CLone this repository
+2. To run the application, simply open your installed git bash terminal (for Windows), or bulit-in terminal (for linux based OS), and run: ```npm run start```
 
 The application will be available for view in browser at: ```http://localhost:3000```
