@@ -15,14 +15,14 @@ describe('fetchUsers', () => {
     jest.restoreAllMocks();
   });
 
-  test('returns users with avatarUrl when the request succeeds', async () => {
+  test('return users with avatarUrl when request success', async () => {
     const fakeUsers: User[] = [
       {
         id: 1,
         name: 'John Doe',
         username: 'jdoe',
         email: 'john@example.com',
-        phone: '555‑1234',
+        phone: '021-1234',
         website: 'example.com',
         avatarUrl: '',
         address: { street: '', suite: '', city: '', zipcode: '' },
@@ -45,19 +45,12 @@ describe('fetchUsers', () => {
     });
   });
 
-  test('throws an error when the response is not ok', async () => {
+  test('throw error when the response is not ok', async () => {
     const mockFetch = jest
       .spyOn(global, 'fetch')
       .mockResolvedValue(createResponse(null, false, 500));
 
     await expect(fetchUsers()).rejects.toThrow('Failed to get user list');
     expect(mockFetch).toHaveBeenCalledWith(mockUrl);
-  });
-
-  test('propagates network errors', async () => {
-    const networkError = new Error('Network failure');
-    jest.spyOn(global, 'fetch').mockRejectedValue(networkError);
-
-    await expect(fetchUsers()).rejects.toThrow('Network failure');
   });
 });

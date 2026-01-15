@@ -9,11 +9,11 @@ jest.mock('../services/userService');
 const mockUsers: User[] = [
   {
     id: 1,
-    name: 'Alice',
-    username: 'alice',
-    email: 'alice@example.com',
+    name: 'Baru 1',
+    username: 'baru1',
+    email: 'baru1@example.com',
     phone: '123',
-    website: 'alice.com',
+    website: 'example.com',
     avatarUrl: 'https://picsum.photos/seed/1/80/80',
     address: { street: '', suite: '', city: '', zipcode: '' },
     company: { name: '', catchPhrase: '', bs: '' },
@@ -68,7 +68,7 @@ describe('UserProvider', () => {
     );
   };
 
-  it('renders children', () => {
+  it('render children', () => {
     const { getByText } = render(
       <UserProvider>
         <div>Child</div>
@@ -97,7 +97,7 @@ describe('UserProvider', () => {
     await waitFor(() => expect(getByText(/Error/i)).toBeInTheDocument());
   });
 
-  it('dispatch works', async () => {
+  it('success dispatch', async () => {
     (fetchUsers as jest.Mock).mockResolvedValueOnce([]);
     const { getByTestId, getByText } = render(
       <UserProvider>

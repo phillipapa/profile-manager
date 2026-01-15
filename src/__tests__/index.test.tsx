@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import App from '../App';
@@ -16,8 +15,8 @@ const Root = () => (
   </ConfigProvider>
 );
 
-describe('Root bootstrap (index.tsx)', () => {
-  test('renders App inside ConfigProvider with correct theme', () => {
+describe('index.tsx', () => {
+  test('renders App', () => {
     render(<Root />);
     expect(screen.getByText(/Profile Manager/i)).toBeInTheDocument();
     const root = document.documentElement;

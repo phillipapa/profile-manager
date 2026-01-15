@@ -29,7 +29,7 @@ const mockUser: User = {
   name: 'John Doe',
   username: 'jdoe',
   email: 'john@example.com',
-  phone: '555-1234',
+  phone: '021-1234',
   website: 'johndoe.com',
   avatarUrl: 'https://picsum.photos/seed/1/80/80',
   address: { street: '', suite: '', city: '', zipcode: '' },
@@ -53,7 +53,7 @@ describe('UserFormModal', () => {
     jest.clearAllMocks();
   });
 
-  test('renders in add mode with empty form', () => {
+  test('render add modal with empty form', () => {
     renderComponent({ mode: 'add' });
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe('UserFormModal', () => {
     expect(screen.getByRole('button', { name: /add/i })).toBeInTheDocument();
   });
 
-  test('renders in edit mode with pre‑filled values', () => {
+  test('render edit with prefilled values', () => {
     renderComponent({ mode: 'edit', user: mockUser });
 
     expect(screen.getByDisplayValue(mockUser.name)).toBeInTheDocument();
@@ -69,7 +69,7 @@ describe('UserFormModal', () => {
     expect(screen.getByDisplayValue(mockUser.email)).toBeInTheDocument();
   });
 
-  test('shows validation errors when required fields are empty', async () => {
+  test('show validation errors when required fields empty', async () => {
     renderComponent({ mode: 'add' });
 
     userEvent.click(screen.getByRole('button', { name: /add/i }));
@@ -83,7 +83,7 @@ describe('UserFormModal', () => {
     expect(mockDispatch).not.toHaveBeenCalled();
   });
 
-  test('shows email format validation error', async () => {
+  test('show email format validation error', async () => {
     renderComponent({ mode: 'add' });
 
     userEvent.type(screen.getByLabelText(/email/i), 'invalid-email');
@@ -94,7 +94,7 @@ describe('UserFormModal', () => {
     });
   });
 
-  test('dispatches ADD_USER and shows success on valid add', async () => {
+  test('dispatch ADD_USER and shows success on valid add', async () => {
     renderComponent({ mode: 'add' });
 
     userEvent.type(screen.getByLabelText(/full name/i), 'saya test');
@@ -108,9 +108,9 @@ describe('UserFormModal', () => {
         expect.objectContaining({
           type: 'ADD_USER',
           payload: expect.objectContaining({
-            name: 'Alice Smith',
-            username: 'asmith',
-            email: 'alice@example.com',
+            name: 'baru nih',
+            username: 'newbaruuser',
+            email: 'userbaru@example.com',
           }),
         })
       );
@@ -118,7 +118,7 @@ describe('UserFormModal', () => {
     });
   });
 
-  test('dispatches UPDATE_USER and shows success on valid edit', async () => {
+  test('dispatch UPDATE_USER and shows success on valid edit', async () => {
     renderComponent({ mode: 'edit', user: mockUser });
 
     userEvent.clear(screen.getByLabelText(/full name/i));
@@ -131,7 +131,7 @@ describe('UserFormModal', () => {
           type: 'UPDATE_USER',
           payload: expect.objectContaining({
             id: mockUser.id,
-            name: 'John Updated',
+            name: 'baru nih Updated',
           }),
         })
       );
@@ -139,7 +139,7 @@ describe('UserFormModal', () => {
     });
   });
 
-  test('calls onClose after successful submit', async () => {
+  test('call onClose after successful submit', async () => {
     const onClose = jest.fn();
     renderComponent({ mode: 'add', onClose });
 

@@ -33,7 +33,7 @@ describe('UserDetailModal', () => {
     jest.clearAllMocks();
   });
 
-  test('renders modal with user data when open', () => {
+  test('render modal with user data when open', () => {
     render(
       <UserDetailModal open={true} onClose={onClose} user={mockUser} />
     );
@@ -66,7 +66,7 @@ describe('UserDetailModal', () => {
     });
   });
 
-  test('does not render when open is false', () => {
+  test('not render when open is false', () => {
     render(
       <UserDetailModal open={false} onClose={onClose} user={mockUser} />
     );
@@ -86,7 +86,7 @@ describe('UserDetailModal', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  test('has no footer', () => {
+  test('no footer', () => {
     render(
       <UserDetailModal open={true} onClose={onClose} user={mockUser} />
     );

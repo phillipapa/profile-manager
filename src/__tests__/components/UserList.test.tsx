@@ -49,22 +49,22 @@ const renderWithState = (stateOverrides: Partial<ReturnType<typeof useUserContex
 const mockUsers: User[] = [
   {
     id: 1,
-    name: 'Alice Smith',
-    username: 'asmith',
-    email: 'alice@example.com',
-    phone: '555-1234',
-    website: 'alice.com',
+    name: 'baru 1',
+    username: 'baru1',
+    email: 'baru1@example.com',
+    phone: '021-1234',
+    website: 'example.com',
     avatarUrl: 'https://picsum.photos/seed/1/80/80',
     address: { street: '', suite: '', city: '', zipcode: '' },
     company: { name: '', catchPhrase: '', bs: '' },
   },
   {
     id: 2,
-    name: 'Bob Jones',
-    username: 'bjones',
-    email: 'bob@example.com',
-    phone: '555-5678',
-    website: 'bob.com',
+    name: 'baru 2',
+    username: 'baru2',
+    email: 'baru2@example.com',
+    phone: '021-5678',
+    website: 'example.com',
     avatarUrl: 'https://picsum.photos/seed/2/80/80',
     address: { street: '', suite: '', city: '', zipcode: '' },
     company: { name: '', catchPhrase: '', bs: '' },
@@ -76,42 +76,42 @@ describe('UserList', () => {
     jest.clearAllMocks();
   });
 
-  test('shows loading spinner when loading', () => {
+  test('show loading spinner when loading', () => {
     renderWithState({ state: { loading: true, users: [], error: null } });
 
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
     expect(screen.queryByText('Add User')).not.toBeInTheDocument();
   });
 
-  test('shows error alert when error is set', () => {
+  test('show error alert when error is set', () => {
     renderWithState({ state: { loading: false, users: [], error: 'Network error' } });
 
     expect(screen.getByText('Error')).toBeInTheDocument();
     expect(screen.getByText('Network error')).toBeInTheDocument();
   });
 
-  test('renders table rows from users', () => {
+  test('render table users', () => {
     renderWithState({ state: { loading: false, users: mockUsers, error: null } });
 
     const rows = screen.getAllByRole('row');
     expect(rows).toHaveLength(mockUsers.length + 1);
 
-    expect(screen.getByText('Alice Smith')).toBeInTheDocument();
-    expect(screen.getByText('Bob Jones')).toBeInTheDocument();
+    expect(screen.getByText('baru 1')).toBeInTheDocument();
+    expect(screen.getByText('baru 2')).toBeInTheDocument();
   });
 
-  test('opens detail modal when eye button is clicked', async () => {
+  test('open detail modal when eye button clicked', async () => {
     renderWithState({ state: { loading: false, users: mockUsers, error: null } });
 
     const eyeButtons = screen.getAllByRole('button', { name: /eye/i });
     fireEvent.click(eyeButtons[0]);
 
     await waitFor(() => {
-      expect(screen.getByTestId('detail-modal')).toHaveTextContent('Detail: Alice Smith');
+      expect(screen.getByTestId('detail-modal')).toHaveTextContent('Detail: baru 1');
     });
   });
 
-  test('opens form modal in add mode when Add button is clicked', async () => {
+  test('open form modal in add mode when Add button clicked', async () => {
     renderWithState({ state: { loading: false, users: [], error: null } });
 
     const addBtn = screen.getByRole('button', { name: /add user/i });
@@ -122,7 +122,7 @@ describe('UserList', () => {
     });
   });
 
-  test('opens form modal in edit mode when edit button is clicked', async () => {
+  test('opens form modal edit when edit button clicked', async () => {
     renderWithState({ state: { loading: false, users: mockUsers, error: null } });
 
     const editButtons = screen.getAllByRole('button', { name: /edit/i });
@@ -133,7 +133,7 @@ describe('UserList', () => {
     });
   });
 
-  test('dispatches DELETE_USER when delete button is clicked', () => {
+  test('dispatch DELETE_USER when delete button is clicked', () => {
     renderWithState({ state: { loading: false, users: mockUsers, error: null } });
 
     const deleteButtons = screen.getAllByRole('button', { name: /delete/i });
